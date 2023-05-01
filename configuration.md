@@ -8,7 +8,6 @@ Entre deux routeurs ou entre un routeur et le serveur web externe, j'ai décidé
 
 ### Réseau interne
 
-
 En ce qui concerne le réseau interne, les machines doivent avoir des adresse privées. Dans ce contexte, j'ai décidé de que les réseaux de chaque VLAN seraient définis ce cette manière en respectant la RFC 1918: 192.168.VLAN.MACHINE. Par exemple, la première machine recevant une adresse IP appartenant au VLAN 10 possède cette adresse IP: 192.168.10.1/24. Par ailleurs, j'ai mis en place un serveur DHCP qui attribue des adresses IP à toutes les machines de tous les VLANs sauf celui dans lequel il se situe.
 
 ## Routage opérateur
@@ -39,5 +38,3 @@ Extended IP access list administration
     permit icmp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 echo-reply
     permit ip any any
 ```
-
-Concernant la sécurité du routeur, j'ai mis en place une authentification pour l'accès au CLI via le port console. De plus, j'ai mis en place une authentification supplémentaire pour l'accès au mode privilégié. De cette manière, des personnes physiquement présentes ne peuvent pas opérer des modifications sur le routeur. 
