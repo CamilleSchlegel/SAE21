@@ -39,3 +39,5 @@ Extended IP access list administration
     permit icmp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 echo-reply
     permit ip any any
 ```
+
+Concernant la sécurité du routeur, j'ai mis en place une authentification pour l'accès au CLI via le port console. De plus, j'ai mis en place une authentification supplémentaire pour l'accès au mode privilégié. De cette manière, des personnes physiquement présentes ne peuvent pas opérer des modifications sur le routeur. 
