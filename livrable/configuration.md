@@ -29,12 +29,12 @@ Pour répondre aux besoins de sécurité au niveau du réseau interne, j'ai mis 
 |Technique|30|
 |Service interne|40|
 
-Après avoir configuré les deux switchs, je me suis occupé de l'interface interne du routeur de telle sorte que les machines des différents VLANs puissent communiquer. Ensuite, j'ai pu instaurer des règles de sécurité. Par exemple, pour faire en sorte que les administratifs aient accès au serveur interne, à la DMZ et à Internet mais qu'ils ne puissant pas avoir accès aux autres réseaux internes, cette règle a été mis en place:
+Après avoir configuré les deux switchs, je me suis occupé de l'interface interne du routeur de telle sorte que les machines des différents VLANs puissent communiquer. Ensuite, j'ai pu instaurer des règles de sécurité. Par exemple, pour faire en sorte que les administratifs aient accès au serveur interne, à la DMZ et à Internet mais qu'ils ne puissent pas avoir accès aux autres réseaux internes, cette règle a été mis en place:
 
 ```
 Extended IP access list administration
     deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
-    permit tcp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255    established
+    permit tcp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255  established
     permit icmp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 echo-reply
     permit ip any any
 ```
