@@ -6,9 +6,13 @@ Liste des commandes
 ## S1
 ```
 Switch>en
-S1#conf t
+Switch#conf t
 Switch#hostname S1 # déclarer le nom du switch
 S1(config)#enable secret ^NqVqT$t7Jt8^A
+S1(config)#line con 0 #configurer le port console
+S1(config-line)#password %PDNmJ$SyP@L86 #définir un mot de passe
+S1(config-line)#login #activer l'authentification
+S1(config-line)#exit
 S1(config)#vlan 10
 S1(configt-vlan)#name commercial #déclarer le nom du vlan
 S1(configt-vlan)#exit
@@ -49,6 +53,10 @@ Switch>en
 Switch#conf t
 Switch(config)#hostname S2
 S2(config)#enable secret &W!AaBUUR98n&t
+S1(config)#line con 0
+S2(config-line)#password q*9uK!JGW%Mi#@
+S2(config-line)#login
+S2(config-line)#exit
 S2(config)#int fa0/1
 S2(config-if)#switchport mode access
 S2(config-if)#switchport access vlan 30
@@ -86,11 +94,14 @@ S2(config-if)#exit
 ## R1
 
 ```
-
 Router>en
 Router#conf t
 Router(config)#hostname R1
 R1(config)#enable secret &4fpN2J!pBr7Hb
+S1(config)#line con 0
+S2(config-line)#password d8kS6tmVD%HJke
+S2(config-line)#login
+S2(config-line)#exit
 R1(config)#int Loopback0 #déclarer une interface de loopback pour les échanges OSPF 
 R1(config-if)#ip address 5.5.5.5 255.255.255.255 #définir une adresse IP à l'interface
 R1(config-if)#exit
@@ -183,6 +194,11 @@ Router>en
 Router#conf t
 Router(config)#hostname R2
 R2(config)#enable secret c2F4H3Kuf!qk^g
+R2(config)#line con 0
+R2(config-line)#password ZBPJ5$v%2xuvQK
+R2(config-line)#login
+R2(config-line)#exit
+R2(config)#ip route 0.0.0.0 0.0.0.0 10.0.0.1
 R2(config)#int Loopback0
 R2(config-if)#ip address 4.4.4.4 255.255.255.255
 R2(config-if)#exit
@@ -214,8 +230,12 @@ R2(config-if)#exit
 ```
 Router>en
 Router#conf t
-R3(config)#hostname R3
+Router(config)#hostname R3
 R3(config)#enable secret kRt#a7!YE7F9CM 
+R3(config)#line con 0
+R3(config-line)#password w93F$EX&o^B2Mq
+R3(config-line)#login
+R3(config-line)#exit
 R3(config)#interface Loopback0
 R3(config-if)#ip address 2.2.2.2 255.255.255.255
 R3(config-if)#exit
@@ -254,8 +274,13 @@ R3(config-router)#exit
 ```
 Router>en
 Router#conf t
-R4(config)#hostname R4 
+Router(config)#hostname R4 
 R4(config)#enable secret 9*TA#f65Wiy$xv
+R4(config)#line con 0
+R4(config-line)#password qoSpux^xn5kN6A
+R4(config-line)#login
+R4(config-line)#exit
+R2(config)#ip route 0.0.0.0 0.0.0.0 10.0.0.5
 R4(config)#interface Loopback0
 R4(config-if)#ip address 1.1.1.1 255.255.255.255
 R4(config-if)#exit
@@ -301,8 +326,13 @@ R4(config-router)#exit
 ```
 Router>en
 Router#conf t
-R5(config)#hostname R5
+Router(config)#hostname R5
 R5(config)#enable secret !TJLc3NZjXB!cq
+R5(config)#line con 0 
+R5(config-line)#password *Zjk!9@9KeWmE# 
+R5(config-line)#login  
+R5(config-line)#exit
+R2(config)#ip route 0.0.0.0 0.0.0.0 10.0.0.9
 R5(config)#interface Loopback0
 R5(config-if)#ip address 1.1.1.1 255.255.255.255
 R5(config-if)#exit

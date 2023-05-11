@@ -77,14 +77,7 @@ Pour vérifier cette contrainte "Le service technique doit avoir accès à tous 
 - faire un ping du PC7 au Server_WEB_INTERNE
 - faire un ping du PC9 au ServerWeb
 
-Pour vérifier cette contrainte "La machine administrateur reliée au niveau de la DMZ pour la partie administration des serveurs aura accès aux serveurs mais ne pourra ni aller dans les réseaux internes, ni aller sur internet. Elle ne devra pas être joignable par des machines de l’Internet.", il faut suivre ces instructions:
-
-- faire un ping du Laptop_administrateur au ServerWeb
-- faire un ping du Laptop_administrateur au Server_WEB_OPERATEUR
-- faire un ping du Laptop_administrateur au PC7
-- faire un ping du PC0 au Laptop_administrateur 
-
-La première opération doit avoir un retour positif tandis que les trois dernières ne doivent pas fonctionner.
+On peut également vérifier qu'à partir d'une machine appartenant au service technique, on puisse communiquer avec les machines des autres services tant que le protocole de couche transport est TCP. Pour le vérifier, on peut utiliser le protocole "Telnet" qui utilise TCP.
 
 ## Sites délocalisés
 
@@ -96,3 +89,14 @@ représentant l’Internet et ne doivent pouvoir joindre les erveurWEB interne q
 - faire un ping du PC0 au Server_WEB_INTERNE
 
 Ces trois opérations doivent avoir un retour positif. 
+
+## DMZ
+
+Pour vérifier cette contrainte "La machine administrateur reliée au niveau de la DMZ pour la partie administration des serveurs aura accès aux serveurs mais ne pourra ni aller dans les réseaux internes, ni aller sur internet. Elle ne devra pas être joignable par des machines de l’Internet", il faut suivre ces instructions:
+
+- faire un ping du LaptopAdministrateur au ServeurDNS
+- faire un ping du LaptopAdministrateur au ServeurWebDMZ
+- faire une ping du LaptopAdministrateur au PC7
+- faire une ping du LaptopAdministrateur au ServeurWebOperateur
+- faire une ping du PC7 au LaptopAdministrateur
+- faire une ping du ServeurWebOperateur au LaptopAdministrateur
