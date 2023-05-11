@@ -26,8 +26,8 @@ Pour répondre aux besoins de sécurité au niveau du réseau interne, j'ai mis 
 |---|---:|
 |Commercial|10|
 |Administration|20|
-|Technique|30|
-|Service interne|40|
+|SI|30|
+|Services_internes|40|
 
 Après avoir configuré les deux switchs, je me suis occupé de l'interface interne du routeur de telle sorte que les machines des différents VLANs puissent communiquer. Ensuite, j'ai pu instaurer des règles de sécurité. Par exemple, pour faire en sorte que les administratifs aient accès au serveur interne, à la DMZ et à Internet mais qu'ils ne puissent pas avoir accès aux autres réseaux internes, cette règle a été mis en place:
 
